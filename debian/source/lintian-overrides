@@ -1,0 +1,4 @@
+python-pytz source: no-debian-changes
+python-pytz source: source-contains-prebuilt-windows-binary
+python-pytz source: source-is-missing
+python-pytz source: source-package-encodes-python-version
