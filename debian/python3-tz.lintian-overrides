@@ -1,0 +1,4 @@
+python3-tz: copyright-without-copyright-notice
+python3-tz: initial-upload-closes-no-bugs
+python3-tz: no-manual-page
+python3-tz: zero-byte-file-in-doc-directory
