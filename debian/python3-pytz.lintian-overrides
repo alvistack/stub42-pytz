@@ -1,0 +1,4 @@
+python3-pytz: copyright-without-copyright-notice
+python3-pytz: initial-upload-closes-no-bugs
+python3-pytz: no-manual-page
+python3-pytz: zero-byte-file-in-doc-directory
