@@ -19,6 +19,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
+          python -V
           python -m pip install --upgrade pip wheel flake8
       - name: Build
         run: |
@@ -26,14 +27,17 @@ jobs:
       - name: Unit Tests
         run: |
           cd build/dist/pytz/tests
+          python -V
           python test_lazy.py -vv
           python test_tzinfo.py -vv
       - name: Documentation Tests
         run: |
           cd build/dist/pytz/tests
+          python -V
           python test_docs.py -vv
       - name: zdump Tests
         run: |
+          python -V
           python gen_tests.py
           python test_zdump.py -q
 
@@ -55,6 +59,7 @@ jobs:
           allow-prereleases: true
       - name: Install dependencies
         run: |
+          python -V
           python -m pip install --upgrade pip wheel flake8
       - name: Build
         run: |
@@ -62,11 +67,13 @@ jobs:
       - name: Unit Tests
         run: |
           cd build/dist/pytz/tests
+          python -V
           python test_lazy.py -vv
           python test_tzinfo.py -vv
       - name: Documentation Tests
         run: |
           cd build/dist/pytz/tests
+          python -V
           python test_docs.py -vv
 
   antiquity:
@@ -104,9 +111,11 @@ jobs:
       - name: Unit Tests
         run: |
           cd build/dist/pytz/tests
-          python test_lazy.py -vv
-          python test_tzinfo.py -vv
+          python2 -V
+          python2 test_lazy.py -vv
+          python2 test_tzinfo.py -vv
       - name: Documentation Tests
         run: |
           cd build/dist/pytz/tests
-          python test_docs.py -vv
+          python2 -V
+          python2 test_docs.py -vv
