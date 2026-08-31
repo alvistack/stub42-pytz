@@ -405,7 +405,7 @@ country_names = _CountryNameDict()
 
 # Time-zone info based solely on fixed offsets
 
-class _FixedOffset(datetime.tzinfo):
+class _FixedOffset(BaseTzInfo):
 
     zone = None  # to match the standard pytz API
 
@@ -413,10 +413,10 @@ class _FixedOffset(datetime.tzinfo):
         if abs(minutes) >= 1440:
             raise ValueError("absolute offset is too large", minutes)
         self._minutes = minutes
-        self._offset = datetime.timedelta(minutes=minutes)
+        self._utcoffset = datetime.timedelta(minutes=minutes)
 
     def utcoffset(self, dt):
-        return self._offset
+        return self._utcoffset
 
     def __reduce__(self):
         return FixedOffset, (self._minutes, )
@@ -429,6 +429,9 @@ class _FixedOffset(datetime.tzinfo):
 
     def __repr__(self):
         return 'pytz.FixedOffset(%d)' % self._minutes
+
+    # BaseTzInfo.__str__ returns self.zone, which is None here.
+    __str__ = __repr__
 
     def localize(self, dt, is_dst=False):
         '''Convert naive time to local time'''
