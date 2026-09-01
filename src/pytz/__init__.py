@@ -173,9 +173,17 @@ def timezone(zone):
     ...     print('Unknown')
     Unknown
 
+    Anything that is not a zone name is unknown too.
+
+    >>> try:
+    ...     timezone(False)
+    ... except UnknownTimeZoneError:
+    ...     print('Unknown')
+    Unknown
+
     '''
-    if zone is None:
-        raise UnknownTimeZoneError(None)
+    if not isinstance(zone, (str, unicode, bytes)):
+        raise UnknownTimeZoneError(zone)
 
     if zone.upper() == 'UTC':
         return utc
