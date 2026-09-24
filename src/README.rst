@@ -14,6 +14,12 @@ Library Reference (``datetime.tzinfo``).
 
 Almost all of the Olson timezones are supported.
 
+.. caution::
+
+    Deprecated. This library fails for dates starting 2038.
+    Use modern Python and the Python standard library.
+    Updates continue to be made for legacy systems.
+
 .. note::
 
     Projects using Python 3.9 or later should use the standard library 

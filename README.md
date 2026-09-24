@@ -6,6 +6,10 @@ cross platform timezone calculations.
 pytz contains generated code, and this branch generates it. The actual
 pytz code and documentation can be found in the src/ directory.
 
+> [!WARNING]
+> Deprecated. This library fails for dates starting 2038. Use modern Python and the Python standard library.
+> Updates continue to be made for legacy systems.
+
 ## Usage Information / Documentation
 
 See [the pytz README](src/README.rst).
